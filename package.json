@@ -1,0 +1,23 @@
+{
+  "name": "unblock-integration",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "create-user": "bun run src/scripts/create-user.ts",
+    "txs": "bun run src/scripts/check-txs.ts",
+    "kyc": "bun run src/scripts/kyc.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/inquirer": "^9.0.7",
+    "axios": "^1.6.7",
+    "inquirer": "^9.2.15",
+    "siwe": "^2.1.4",
+    "viem": "^2.7.16"
+  }
+}

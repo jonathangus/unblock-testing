@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Page</title>
+    <script src = "https://static.sumsub.com/idensic/static/sns-websdk-builder.js"></script>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a simple HTML page.</p>
+    <div id="sumsub-websdk-container"></div>
+    <script>
+
+        function launchWebSdk(accessToken, applicantEmail, applicantPhone, customI18nMessages) {
+         let snsWebSdkInstance = snsWebSdk.init(
+            accessToken,
+            // token update callback, must return Promise
+            // Access token expired
+            // get a new one and pass it to the callback to re-initiate the WebSDK
+            () => {
+                // this.getNewAccessToken()
+                return new Promise(resolve => resolve)
+            }
+        )
+        .withConf({
+            lang: 'en', //language of WebSDK texts and comments (ISO 639-1 format)
+            email: applicantEmail,
+            phone: applicantPhone,
+        })
+        .withOptions({ addViewportTag: false, adaptIframeHeight: true})
+        // see below what kind of messages WebSDK generates
+        .on('idCheck.onStepCompleted', (payload) => {
+            console.log('onStepCompleted', payload)
+        })
+        .on('idCheck.onError', (error) => {
+            console.log('onError', error)
+        })
+        .build();
+
+        // you are ready to go:
+        // just launch the WebSDK by providing the container element for it
+        snsWebSdkInstance.launch('#sumsub-websdk-container')
+}
+
+function getNewAccessToken() {
+  return Promise.resolve("sbx:kuBsD9tdCTS9iJZbYgVvAXEh.GwDgUKPSiACAbayn8JkZFA1CSfdDAHIT")// get a new token from your backend
+}
+
+        launchWebSdk("sbx:kuBsD9tdCTS9iJZbYgVvAXEh.GwDgUKPSiACAbayn8JkZFA1CSfdDAHIT", "jonathan@anotherblock.io", "+46703679949")
+
+    </script>
+</body>
+</html>
