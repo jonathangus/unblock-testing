@@ -5,7 +5,8 @@
   "scripts": {
     "create-user": "bun run src/scripts/create-user.ts",
     "txs": "bun run src/scripts/check-txs.ts",
-    "kyc": "bun run src/scripts/kyc.ts"
+    "kyc": "bun run src/scripts/kyc.ts",
+    "user": "bun run src/scripts/user-info.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"

@@ -47,7 +47,7 @@ const unblockAccountCurrency = 'EUR';
 const remoteBankAccRequest = {
   main_beneficiary: true, // true or false
   account_details: { currency: 'EUR', iban: process.env.IBAN },
-  account_name: 'Anotherblock',
+  account_name: 'Anotherblockdd',
 };
 
 const main = async () => {
